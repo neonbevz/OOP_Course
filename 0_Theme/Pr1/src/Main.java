@@ -12,33 +12,27 @@ public class Main {
         return out;
     }
 
-    private class Numbers {
-        String str;
-
-        public Numbers(String str) {
-            this.str = str;
-        }
-
-        public String iterate(int pos) {
-            int cur = 0;
-            String out = "";
-            for (int i=0; i<this.str.length(); i++) {
-                if (this.str.charAt(i) == ' ') {
-                    cur += 1;
-                } else {
-                    if (cur == pos) {
-                        out += this.str.charAt(i);
-                    }
+    private static String get_num(int pos, String str) {
+        int cur = 0;
+        String out = "";
+        for (int i=0; i<str.length(); i++) {
+            if (str.charAt(i) == ' ') {
+                cur += 1;
+            } else {
+                if (cur == pos) {
+                    out += str.charAt(i);
                 }
             }
-            return out;
         }
+        return out;
     }
 
     public static void main(String[] args) {
-        String in = "1 22 333 4444";
-        Numbers nums = new Numbers(in);
-
+        String in = "0 11 222 3333";
+        String num1 = get_num(0, in);
+        String num2 = get_num(2, in);
+        System.out.println("0:" + num1);
+        System.out.println("2:" + num2);
 //        Scanner in = new Scanner(System.in);
 //        System.out.println("Amount: ");
 //        int amount = in.nextInt();
