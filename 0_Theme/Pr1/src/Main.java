@@ -27,28 +27,59 @@ public class Main {
         return out;
     }
 
+    private static String biggest(String nums, int amount) {
+        if (amount == 1) {
+            return get_num(0, nums);
+        } else {
+            int out = Integer.parseInt(get_num(0, nums));
+            for (int i=1; i<amount; i++) {
+                if (Integer.parseInt(get_num(i, nums)) > out) {
+                    out = Integer.parseInt(get_num(i, nums));
+                }
+            }
+            return Integer.toString(out);
+        }
+    }
+
+    private static String smallest(String nums, int amount) {
+        if (amount == 1) {
+            return get_num(0, nums);
+        } else {
+            int out = Integer.parseInt(get_num(0, nums));
+            for (int i=1; i<amount; i++) {
+                if (Integer.parseInt(get_num(i, nums)) < out) {
+                    out = Integer.parseInt(get_num(i, nums));
+                }
+            }
+            return Integer.toString(out);
+        }
+    }
+
+    private static String sum(String nums, int amount) {
+        int out = 0;
+        for (int i=0; i<amount; i++) {
+            out += Integer.parseInt(get_num(i, nums));
+        }
+        return Integer.toString(out);
+    }
+
+    private static String product(String nums, int amount) {
+        int out = Integer.parseInt(get_num(0, nums));
+        for (int i=1; i<amount; i++) {
+            out *= Integer.parseInt(get_num(i, nums));
+        }
+        return Integer.toString(out);
+    }
+
     public static void main(String[] args) {
-        String in = "0 11 222 3333";
-        String num1 = get_num(0, in);
-        String num2 = get_num(2, in);
-        System.out.println("0:" + num1);
-        System.out.println("2:" + num2);
-//        Scanner in = new Scanner(System.in);
-//        System.out.println("Amount: ");
-//        int amount = in.nextInt();
-//        int numbers[] = new int[amount];
-//        for (int i=0; i<amount; i++) {
-//            System.out.println("Number " + Integer.toString(i+1) + ":");
-//            numbers[i] = in.nextInt();
-//        }
-//        Arrays.sort(numbers);
-//        for (int i=0; i<amount; i++) {
-//            System.out.print(numbers[i]);
-//        }
-//        System.out.println("Biggest: " + Integer.toString(numbers[numbers.length -1]));
-//        System.out.println("Smallest: " + Integer.toString(numbers[0]));
-//        System.out.println("Sum: " + Integer.toString(sum(numbers)));
-//        System.out.println("Average: " + Float.toString(sum(numbers) / numbers.length));
+        Scanner in = new Scanner(System.in);
+        int amount = in.nextInt();
+        String numbers = in.nextLine();
+//        System.out.println("Biggest: " + biggest(numbers, amount));
+//        System.out.println("Smallest: " + smallest(numbers, amount));
+//        System.out.println("Sum: " + sum(numbers, amount));
+//        System.out.println("Average: " + Float.toString(Integer.parseInt(sum(numbers, amount)) / amount));
+//        System.out.println("Product: " + product(numbers, amount));
 
     }
 }
