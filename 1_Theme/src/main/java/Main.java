@@ -24,7 +24,7 @@ public class Main {
 
     private static void parseCategory(String url) throws IOException {
 //      Try to create "data" directory:
-        File file = new File("..\\data");
+        File file = new File("data");
         if (!file.exists()) {
             if (!file.mkdir()) {
                 System.out.println("Failed to create directory!");
